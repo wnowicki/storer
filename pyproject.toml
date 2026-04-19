@@ -5,6 +5,11 @@ dynamic = ["version"]
 requires-python = ">=3.14"
 readme = "README.md"
 license = { file = "LICENSE.md"}
+dependencies = [
+    "alembic>=1.18.4",
+    "fastapi[standard]>=0.136.0",
+    "sqlmodel>=0.0.38",
+]
 
 [project.urls]
 "Homepage" = "https://github.com/wnowicki/storer"
