@@ -25,3 +25,5 @@ class AppSettings(BaseSettings):
     log_local: bool = True
     log_file_max_bytes: int = 1000000
     log_file_backup_count: int = 5
+
+    database_url: str
