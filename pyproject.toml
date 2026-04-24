@@ -7,6 +7,8 @@ readme = "README.md"
 license = { file = "LICENSE.md"}
 dependencies = [
     "alembic>=1.18.4",
+    "bcrypt>=5.0.0",
+    "bitaware>=0.2.0",
     "fastapi[standard]>=0.136.0",
     "sqlmodel>=0.0.38",
 ]
@@ -14,6 +16,9 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/wnowicki/storer"
 "Source" = "https://github.com/wnowicki/storer"
+
+[tool.setuptools]
+py-modules = []
 
 [tool.pytest.ini_options]
 minversion = "6.0"
