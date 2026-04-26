@@ -20,6 +20,11 @@ class AppSettings(BaseSettings):
 
     env: Env = Env.DEV
 
+    secret_key: str
+
+    jwt_algorithm: str = "HS256"
+    jwt_access_token_expire: int = 1800  # 30 minutes
+
     log_level: str = "INFO"
 
     log_local: bool = True

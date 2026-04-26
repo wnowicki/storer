@@ -2,6 +2,9 @@
 
 import logging
 from logging.handlers import RotatingFileHandler
+from typing import Generator
+
+from sqlmodel import Session, create_engine
 
 from .settings import AppSettings
 
@@ -35,3 +38,22 @@ def get_app_logger() -> logging.Logger:
         app_logger.addHandler(handler_file)
 
     return app_logger
+
+
+db_engine = create_engine(
+    settings.database_url,
+    echo=False,
+    pool_recycle=3600,
+    max_overflow=100,
+    pool_pre_ping=True,
+    logging_name="sqlalchemy",
+)
+
+
+def get_db_session() -> Generator[Session, None, None]:
+    """Get a database session."""
+    with Session(db_engine) as session:
+        yield session
+
+
+# DB = Annotated[Session, Depends(get_db_session)]

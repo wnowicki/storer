@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
+from .api.router import app_router
 from .core import settings
 
 app = FastAPI(
@@ -15,6 +16,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(app_router, prefix="/api")
 
 
 @app.get("/api/ping")
